@@ -130,4 +130,4 @@ MIT License. See the [LICENSE](LICENSE) file for full details.
 
 ## Contact
 
-For questions, collaborations, or demo requests, reach out to **brendanprogrammer@gmail.com**.
+For questions, collaborations, or demo requests, reach out to **bnn.cdl@gmail.com**.
