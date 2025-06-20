@@ -74,9 +74,9 @@ const AddPostModal = ({
     handleMenuClose();
   };
 
-  // const handleLocationSelect = (location) => {
-  //   setSelectedLocation(location); // Update selected location
-  // };
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location); // Update selected location
+  };
 
   if (!user) {
     return null;

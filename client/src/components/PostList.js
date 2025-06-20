@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPosts, loadMorePosts } from '../reducers/postReducer';
+import { fetchPosts, loadMorePosts, toggleUpvote, toggleDownvote } from '../reducers/postReducer';
 import { notify } from '../reducers/notificationReducer';
 import PostCard from './PostCard';
 import SortTabBar from './SortTabBar';
 import LoadMoreButton from './LoadMoreButton';
 import LoadingSpinner from './LoadingSpinner';
 import getErrorMsg from '../utils/getErrorMsg';
-// import MapModal from '../components/MapModal'; // Import your MapModal component
+import MapModal from '../components/MapModal'; // Import your MapModal component
 import ModalList from './MapList';
 
 import { Typography } from '@material-ui/core';

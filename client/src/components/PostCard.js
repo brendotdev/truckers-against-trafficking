@@ -49,8 +49,8 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
   const dispatch = useDispatch();
   const { user, darkMode } = useSelector((state) => state);
-  // const posts = useSelector((state) => state.posts);
-  const [anonymous] = useState(false);
+  const posts = useSelector((state) => state.posts);
+  const [anonymous, setIsAnonymous] = useState(false);
 
   const isUpvoted = user && upvotedBy.includes(user.id);
   const isDownvoted = user && downvotedBy.includes(user.id);

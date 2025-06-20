@@ -73,18 +73,18 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
 
   console.log('selected', selected);
 
-  // const darkModeStyles = [
-  //   { elementType: 'geometry', stylers: [{ color: '#212121' }] },
-  //   { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-  //   { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-  //   { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
-  //   { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-  //   { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-  //   { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#484848' }] },
-  //   { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
-  //   { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#1c1c1c' }] },
-  //   { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#000000' }] },
-  // ];
+  const darkModeStyles = [
+    { elementType: 'geometry', stylers: [{ color: '#212121' }] },
+    { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+    { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
+    { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
+    { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
+    { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
+    { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#484848' }] },
+    { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
+    { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#1c1c1c' }] },
+    { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#000000' }] },
+  ];
 
   return (
     isOpen ? (

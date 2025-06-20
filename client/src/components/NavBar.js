@@ -10,17 +10,17 @@ import SearchBar from './SearchBar';
 import {
   AppBar,
   Toolbar,
-  // Typography,
-  // Link,
+  Typography,
+  Link,
   Button,
   useMediaQuery,
   IconButton,
 } from '@material-ui/core';
 import { useNavStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
-// import RedditIcon from '@material-ui/icons/Reddit';
+import RedditIcon from '@material-ui/icons/Reddit';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import SearchIcon from '@material-ui/icons/Search';
 
 const NavBar = () => {
