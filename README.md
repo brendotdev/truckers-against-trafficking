@@ -120,6 +120,67 @@ truckersagainsttrafficking/
 - 📱 Native mobile app support
 - 📊 Analytics dashboard for NGOs and law enforcement
 
+## Deployment
+
+### 🟢 Live URLs
+
+- **Frontend (Netlify)**: [https://truckersagainsttrafficking.netlify.app](https://truckersagainsttrafficking.netlify.app)
+- **Backend (Render)**: [https://truckers-against-trafficking.onrender.com](https://truckers-against-trafficking.onrender.com)
+
+---
+
+### 🔧 Build & Deployment Instructions
+
+#### 🚀 Deploy Frontend to Netlify
+
+```bash
+# From inside the client/ directory
+npm run build
+```
+
+If using Netlify CLI:
+
+```bash
+npx netlify deploy --prod --dir=build
+```
+
+Or connect your GitHub repo to Netlify and let it auto-deploy from the `client/` folder with:
+- **Build command**: `npm run build`
+- **Publish directory**: `client/build`
+```
+
+#### 🚀 Deploy Backend to Render
+
+```bash
+# Push backend code to GitHub, then:
+# 1. Create a new Web Service on Render
+# 2. Set:
+#    - Root directory: server
+#    - Build command: npm install
+#    - Start command: npm run dev
+# 3. Add environment variables in the Render dashboard
+```
+
+---
+
+### 📦 Required Environment Variables
+
+Add these to:
+
+- `.env` file in `/server`
+- Render environment variables tab
+- Netlify Site Settings → Environment Variables
+
+```env
+MONGODB_URI=your-mongodb-connection-uri
+PORT=3005
+SECRET=your-jwt-secret
+CLOUDINARY_NAME=your-cloudinary-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+UPLOAD_PRESET=your-upload-preset-name
+```
+
 ## Contributing
 
 Want to help? PRs are welcome! Please fork the repo and follow the [contribution guidelines](CONTRIBUTING.md).
