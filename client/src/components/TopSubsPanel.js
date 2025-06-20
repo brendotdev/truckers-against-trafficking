@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleSubscribe } from '../reducers/subReducer';
+// import { toggleSubscribe } from '../reducers/subReducer';
 import { notify } from '../reducers/notificationReducer';
 import SubFormModal from './SubFormModal';
 import LoadingSpinner from './LoadingSpinner';
@@ -30,8 +30,8 @@ const TopSubsPanel = () => {
   const isNotDesktop = useMediaQuery(theme.breakpoints.down('md'));
 
   const [searchTerm, setSearchTerm] = useState(''); // Search term for subreddit name
-  const [latitude, setLatitude] = useState(''); // Latitude for search by location
-  const [longitude, setLongitude] = useState(''); // Longitude for search by location
+  const [latitude] = useState(''); // Latitude for search by location
+  const [longitude] = useState(''); // Longitude for search by location
   const [searchResults, setSearchResults] = useState([]);
   const [loadingSearch, setLoadingSearch] = useState(false);
 
