@@ -1,4 +1,3 @@
-const backendUrl = 'http://localhost:3005';
-// const backendUrl = 'http://192.168.18.40:3005';
+const backendUrl = 'https://truckers-against-trafficking.onrender.com';
 
 export default backendUrl;
