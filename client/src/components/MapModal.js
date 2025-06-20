@@ -48,10 +48,10 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
         console.error('Geolocation is not supported by this browser.');
       }
     };
-    
+
     // Call the function to get the current location
     getCurrentLocation();
-  } ,[isOpen])
+  }, [isOpen])
 
   const handleMapClick = (event) => {
     const newLocation = { lat: event.latLng.lat(), lng: event.latLng.lng() };
@@ -64,7 +64,7 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
     setAddress(value);
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
-    
+
     setSelected(latLng);
     // onSelectLocation(latLng);
     // setLocation(latLng);
@@ -73,18 +73,18 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
 
   console.log('selected', selected);
 
-  const darkModeStyles = [
-    { elementType: 'geometry', stylers: [{ color: '#212121' }] },
-    { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-    { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-    { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
-    { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-    { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-    { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#484848' }] },
-    { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
-    { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#1c1c1c' }] },
-    { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#000000' }] },
-  ];
+  // const darkModeStyles = [
+  //   { elementType: 'geometry', stylers: [{ color: '#212121' }] },
+  //   { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+  //   { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
+  //   { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
+  //   { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
+  //   { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
+  //   { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#484848' }] },
+  //   { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
+  //   { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#1c1c1c' }] },
+  //   { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#000000' }] },
+  // ];
 
   return (
     isOpen ? (
@@ -105,7 +105,7 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
                         {...getInputProps({
                           placeholder: 'Search for a city',
                           className: 'location-search-input',
-                          style: { width: '50%', padding: '13px', marginBottom: '10px', background: "#f9f9f9", border:"none", borderRadius: "10px", outline: "none" }
+                          style: { width: '50%', padding: '13px', marginBottom: '10px', background: "#f9f9f9", border: "none", borderRadius: "10px", outline: "none" }
                         })}
                       />
                       <div>
@@ -127,16 +127,16 @@ const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedL
                 </PlacesAutocomplete>
                 {
                   hideMap ? null :
-                <GoogleMap
-                  onLoad={() => setShowMap(true)}
-                  mapContainerStyle={containerStyle}
-                  center={selected || center}
-                  zoom={10}
-                  onClick={handleMapClick}
-                  // options={{styles: darkModeStyles}}
-                >
-                  {selected && <Marker position={selected} />}
-                </GoogleMap>
+                    <GoogleMap
+                      onLoad={() => setShowMap(true)}
+                      mapContainerStyle={containerStyle}
+                      center={selected || center}
+                      zoom={10}
+                      onClick={handleMapClick}
+                    // options={{styles: darkModeStyles}}
+                    >
+                      {selected && <Marker position={selected} />}
+                    </GoogleMap>
                 }
 
                 {/* Call the ReverseGeocoding component */}

@@ -6,7 +6,7 @@ import { ReactComponent as Top } from '../svg/top.svg';
 import { ReactComponent as Controversial } from '../svg/controversial.svg';
 import { ReactComponent as Old } from '../svg/old.svg';
 import { ReactComponent as Subscribed } from '../svg/subscribed.svg';
-import { ReactComponent as Location } from '../svg/location2.svg'
+// import { ReactComponent as Location } from '../svg/location2.svg'
 
 import { Paper, Tabs, Tab, SvgIcon } from '@material-ui/core';
 import { useSortTabStyles } from '../styles/muiStyles';

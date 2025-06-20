@@ -49,8 +49,8 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
   const dispatch = useDispatch();
   const { user, darkMode } = useSelector((state) => state);
-  const posts = useSelector((state) => state.posts);
-  const [anonymous, setIsAnonymous] = useState(false);
+  // const posts = useSelector((state) => state.posts);
+  const [anonymous] = useState(false);
 
   const isUpvoted = user && upvotedBy.includes(user.id);
   const isDownvoted = user && downvotedBy.includes(user.id);
@@ -91,8 +91,8 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
     postType === 'Link'
       ? linkSubmission
       : postType === 'Image'
-      ? imageSubmission.imageLink
-      : '';
+        ? imageSubmission.imageLink
+        : '';
 
   const formattedLink = trimLink(prettifyLink(linkToShow), 30);
 
@@ -111,10 +111,10 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
             color: isUpvoted
               ? '#FF8b60'
               : isDownvoted
-              ? '#9494FF'
-              : darkMode
-              ? '#e4e4e4'
-              : '#333',
+                ? '#9494FF'
+                : darkMode
+                  ? '#e4e4e4'
+                  : '#333',
             fontWeight: 600,
           }}
         >
@@ -170,8 +170,8 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
                 postType === 'Link'
                   ? fixUrl(linkSubmission)
                   : postType === 'Image'
-                  ? imageSubmission.imageLink
-                  : ''
+                    ? imageSubmission.imageLink
+                    : ''
               }
             >
               {formattedLink}
@@ -195,9 +195,9 @@ const PostCard = ({ post, toggleUpvote, toggleDownvote }) => {
               <Typography variant='body2'>Anonymous</Typography>
             )}
             • <TimeAgo datetime={new Date(createdAt)} />
-            {createdAt !== updatedAt && '*'}            
+            {createdAt !== updatedAt && '*'}
           </Typography>
-          <ReverseGeocoding lat="39.8283" lng="-98.5795"  />
+          <ReverseGeocoding lat="39.8283" lng="-98.5795" />
           {/* <Typography variant="subtitle2">Hello</Typography> */}
         </Typography>
         <div className={classes.bottomBtns}>

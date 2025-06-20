@@ -18,8 +18,8 @@ import {
 } from '@material-ui/core';
 import { useSubPanelStyles } from '../styles/muiStyles';
 import { useTheme } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
-import CheckIcon from '@material-ui/icons/Check';
+// import AddIcon from '@material-ui/icons/Add';
+// import CheckIcon from '@material-ui/icons/Check';
 import MapModal from './MapModal';
 
 const TopSubsPanel = () => {
@@ -45,9 +45,9 @@ const TopSubsPanel = () => {
 
   const loadingSubs = !subs || !subs.topSubs;
 
-  const isSubscribed = (subscribedBy, user) => {
-    return subscribedBy.includes(user.id);
-  };
+  // const isSubscribed = (subscribedBy, user) => {
+  //   return subscribedBy.includes(user.id);
+  // };
 
   // Fetch subreddit by search term (name)
   const fetchSubredditByName = async (term) => {
@@ -83,14 +83,14 @@ const TopSubsPanel = () => {
   };
 
   // Handle latitude input
-  const handleLatitudeChange = (e) => {
-    setLatitude(e.target.value);
-  };
+  // const handleLatitudeChange = (e) => {
+  //   setLatitude(e.target.value);
+  // };
 
   // Handle longitude input
-  const handleLongitudeChange = (e) => {
-    setLongitude(e.target.value);
-  };
+  // const handleLongitudeChange = (e) => {
+  //   setLongitude(e.target.value);
+  // };
 
   // Handle search submit for both subreddit name and lat/lng search
   const handleSearchSubmit = (e) => {
@@ -104,25 +104,25 @@ const TopSubsPanel = () => {
     }
   };
 
-  const handleJoinSub = async (id, subscribedBy, subredditName) => {
-    try {
-      let updatedSubscribedBy;
+  // const handleJoinSub = async (id, subscribedBy, subredditName) => {
+  //   try {
+  //     let updatedSubscribedBy;
 
-      if (subscribedBy.includes(user.id)) {
-        updatedSubscribedBy = subscribedBy.filter((s) => s !== user.id);
-      } else {
-        updatedSubscribedBy = [...subscribedBy, user.id];
-      }
-      dispatch(toggleSubscribe(id, updatedSubscribedBy));
+  //     if (subscribedBy.includes(user.id)) {
+  //       updatedSubscribedBy = subscribedBy.filter((s) => s !== user.id);
+  //     } else {
+  //       updatedSubscribedBy = [...subscribedBy, user.id];
+  //     }
+  //     dispatch(toggleSubscribe(id, updatedSubscribedBy));
 
-      let message = subscribedBy.includes(user.id)
-        ? `Unsubscribed from r/${subredditName}`
-        : `Subscribed to r/${subredditName}!`;
-      dispatch(notify(message, 'success'));
-    } catch (err) {
-      dispatch(notify(getErrorMsg(err), 'error'));
-    }
-  };
+  //     let message = subscribedBy.includes(user.id)
+  //       ? `Unsubscribed from r/${subredditName}`
+  //       : `Subscribed to r/${subredditName}!`;
+  //     dispatch(notify(message, 'success'));
+  //   } catch (err) {
+  //     dispatch(notify(getErrorMsg(err), 'error'));
+  //   }
+  // };
 
   return (
     <Paper variant="outlined" className={classes.mainPaper}>
@@ -162,7 +162,7 @@ const TopSubsPanel = () => {
             style={{ marginBottom: '10px' }}
           />
           */}
-          <MapModal 
+          <MapModal
             isOpen={true}
             hideMap={true}
           />
