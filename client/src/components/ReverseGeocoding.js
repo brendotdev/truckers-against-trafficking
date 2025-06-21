@@ -1,40 +1,38 @@
 import { Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-
-const GOOGLE_API_KEY = "AIzaSyAAJAUvh2hvBMydnZair17Z9Xwq4cx-QZI";
+import backendUrl from '../backendUrl';
 
 const ReverseGeocoding = ({ lng= "-98.5795", lat = "39.8283"}) => {
   const [locationName, setLocationName] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (lat && lng) {
-      const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLE_API_KEY}`;
-
-      // Fetch the location name based on latitude and longitude
-      fetch(geocodeUrl)
+      setLoading(true);
+      
+      fetch(`${backendUrl}/api/geocoding/reverse?lat=${lat}&lng=${lng}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.status === 'OK') {
-            const address = data.results[0]?.formatted_address;
-            console.log('Address:', address);
-            setLocationName(address || 'Location not found');
-          } else {
-            console.error('Geocoding API status error:', data.status);
-            setLocationName('Location not found');
+            setLocationName(data.address || 'Location not found');
+          } else if (data.error) {
+            console.error('Geocoding error:', data.error);
+            setLocationName('Location not available');
           }
         })
         .catch((error) => {
           console.error('Error fetching geocoding data:', error);
           setLocationName('Error fetching location');
-        });
+        })
+        .finally(() => setLoading(false));
     }
   }, [lat, lng]);
 
   return (
     <div>
-      {/* <h3>Location Name:</h3> */}
-      {/* <p>{locationName}</p> */}
-      <Typography variant='caption'>{locationName}</Typography>
+      <Typography variant='caption'>
+        {loading ? 'Loading location...' : locationName}
+      </Typography>
     </div>
   );
 };

@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/post');
 const subredditRoutes = require('./routes/subreddit');
 const userRoutes = require('./routes/user');
+const geocodingRoutes = require('./routes/geocoding');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/api', authRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/subreddits', subredditRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/geocoding', geocodingRoutes);
 
 app.use(middleware.unknownEndpointHandler);
 app.use(middleware.errorHandler);

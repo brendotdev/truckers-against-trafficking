@@ -15,8 +15,12 @@ const center = {
 };
 
 
-const GOOGLE_API_KEY = "AIzaSyAAJAUvh2hvBMydnZair17Z9Xwq4cx-QZI";
+// Remove hardcoded API key - now handled server-side
 const libraries = ['places'];
+
+// Note: GOOGLE_MAPS_API_KEY should be set as environment variable
+// For development, create a .env file in the client directory
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || '';
 
 const MapModal = ({ isOpen, onClose, onSelectLocation, setLocation, setSelectedLocation, hideMap }) => {
   const [selected, setSelected] = useState(null);
